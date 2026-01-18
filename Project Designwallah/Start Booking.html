@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Service Booking </title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="en-us" />
+<meta name="distribution" content="global" />
+<meta name="rating" content="general" />
+<meta name="document-type" content="public" />
+<meta name="generator" content="www.designwallah.in" />
+<meta name="geography" content="" />
+<meta name="author" content="Abhay Gautam" />
+<meta name="copyright" content="" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+</head>
+<body>
+<style>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif;}
+
+.hero{
+  position:relative;
+  height:100vh;
+  width:100%;
+  border-bottom-left-radius:20px; border-bottom-right-radius:20px;
+   box-shadow:0 5px 10px rgba(0,0,0,0.2);
+  
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:  18px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:10;
+}
+
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-area img{
+  width:40px;
+}
+
+.logo-area span{
+  font-size:22px;
+  font-weight:700;
+  color:#0a2540;
+}
+
+.nav-links{
+  display:flex;
+  gap:18px;
+  align-items:center;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#0a2540;
+  font-weight:600;
+}
+
+.nav-links a:hover{color:#1e90ff;}
+
+/* ===== DROPDOWN BASE ===== */
+.dropdown{
+  position:relative;
+  z-index:100; /* dropdown wrapper higher than three-dots */
+}
+
+.dropdown-btn{
+  cursor:pointer;
+  user-select:none;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* ===== DROPDOWN MENU ===== */
+.dropdown-menu{
+  position:absolute;
+  top:120%;
+  left:0;
+
+  min-width:220px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+  padding:10px 0;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+
+  transition:0.25s ease;
+  pointer-events:none;
+
+  z-index:101; /* higher than three-dots */
+}
+
+.dropdown-menu a{
+  display:block;
+  padding:10px 18px;
+  color:#222;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.dropdown-menu a:hover{
+  background:#f3f6ff;
+}
+
+/* ===== OPEN STATE ===== */
+.dropdown.active .dropdown-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* right side placement */
+.privacy-dropdown{
+  margin-left:1295px;
+  position:relative;
+}
+
+/* hamburger */
+.hamburger{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  width:24px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  height:3px;
+  background:#000;
+  border-radius:2px;
+}
+
+/* dropdown */
+.privacy-menu{
+  position:absolute;
+  top:130%;
+  right:0;
+
+  background:#fff;
+  min-width:160px;
+  border-radius:8px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:0.25s ease;
+}
+
+.privacy-menu a{
+  display:block;
+  padding:10px 14px;
+  font-size:14px;
+  color:#222;
+  text-decoration:none;
+}
+
+.privacy-menu a:hover{
+  background:#f3f6ff;
+}
+
+/* open state */
+.privacy-dropdown.active .privacy-menu{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+
+
+/* ===== HERO CONTENT ===== */
+.hero-content{
+  position:relative;
+  z-index:5;
+  height:100%;
+  display:flex;
+  align-items:center;
+  padding:0 60px;
+}
+
+.hero-text{
+  max-width:50%;
+}
+.hero-text h1{
+  font-size:45px;
+  color:#0a2540;
+  margin-bottom:10px;
+}
+.hero-text h2{
+  font-size:26px;
+  margin-bottom:15px;
+}
+.highlight{color:#1e90ff;}
+.hero-text p{
+  color:#555;
+  margin-bottom:25px;
+  margin-right: 260px;
+}
+.hero-text a{
+  padding:14px 28px;
+  background:#1e90ff;
+  color:#fff;
+  border-radius:35px;
+  text-decoration:none;
+  font-weight:600;
+}
+.hero-text a:hover{background:#0b5ed7;}
+
+/* ==== BLUR BACKGROUND CIRCLES ==== */
+.blur-circle{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.35;
+  animation:slowFloat 12s ease-in-out infinite;
+}
+
+.bc1{
+  width:260px;
+  height:260px;
+  background:#1e90ff;
+  top:10%;
+  left:10%;
+}
+.bc2{
+  width:300px;
+  height:300px;
+  background:#ff8c42;
+  top:50%;
+  left:55%;
+  animation-delay:3s;
+}
+.bc3{
+  width:220px;
+  height:220px;
+  background:#4caf50;
+  top:70%;
+  left:20%;
+  animation-delay:6s;
+}
+
+/* ===== HERO ICON WRAPPER ===== */
+.hero-icons-services{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* ===== COMMON ICON STYLE ===== */
+.float-item{
+  position:absolute;
+  font-size:36px;
+  opacity:0.8;
+}
+
+.float-slow{
+  animation: floatUp 10s ease-in-out infinite;   /* pehle 14s */
+}
+
+.float-mid{
+  animation: floatDiagRight 7s ease-in-out infinite; /* pehle 10s */
+}
+
+.float-fast{
+  animation: floatDiagLeft 5s ease-in-out infinite;  /* pehle 8s */
+}
+
+.shape{
+  animation: shapeFloat 12s ease-in-out infinite; /* pehle 16s */
+}
+
+
+/* ===== ICON POSITIONS ===== */
+.float-item:nth-child(1){ top:18%; left:12%; }
+.float-item:nth-child(2){ top:35%; left:65%; }
+.float-item:nth-child(3){ top:55%; left:28%; }
+.float-item:nth-child(4){ top:22%; left:78%; }
+.float-item:nth-child(5){ top:70%; left:55%; }
+
+/* ===== ICON ANIMATIONS ===== */
+@keyframes floatUp{
+  0%,100%{ transform:translate(0,0); }
+  50%{ transform:translate(0,-22px); }
+}
+
+@keyframes floatDiagRight{
+  0%,100%{ transform:translate(0,0); }
+  50%{ transform:translate(16px,-12px); }
+}
+
+@keyframes floatDiagLeft{
+  0%,100%{ transform:translate(0,0); }
+  50%{ transform:translate(-18px,14px); }
+}
+
+/* ===== SOFT SHAPES ===== */
+.shape{
+  position:absolute;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:#1e90ff;
+  opacity:0.12;
+  animation: shapeFloat 16s ease-in-out infinite;
+}
+
+/* SHAPE POSITIONS */
+.shape:nth-child(6){ top:12%; left:42%; }
+.shape:nth-child(7){ top:62%; left:18%; }
+
+@keyframes shapeFloat{
+  0%,100%{ transform:translate(0,0); }
+  50%{ transform:translate(12px,-30px); }
+}
+
+
+
+/* ===== ONE & ONLY MOBILE FIX ===== */
+@media screen and (max-width: 900px){
+
+  body{
+    overflow-x:hidden;
+  }
+
+  .hero{
+    min-height:100vh;
+    position:relative;
+  }
+
+  /* NAVBAR */
+  .navbar{
+    padding:12px 16px;
+  }
+
+  .logo-area img{
+    width:32px;
+  }
+
+  .logo-area span{
+    font-size:15px;
+  }
+
+  /* HERO CONTENT */
+  .hero-content{
+    position:relative;
+    z-index:10;
+    padding:120px 16px 40px;
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:24px;
+  }
+
+  .hero-text h2{
+    font-size:17px;
+  }
+
+  .hero-text p{
+    font-size:14px;
+  }
+
+  /* ANIMATION BACKGROUND */
+  .hero-bg-animation{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+  }
+
+  .hero-icons-services{
+    position:absolute;
+    inset:0;
+    z-index:2;
+    opacity:0.35;
+  }
+
+  .float-item{
+    font-size:20px;
+  }
+
+  /* FIXED SAFE POSITIONS */
+  .float-item:nth-child(1){ top:15%; left:10%; }
+  .float-item:nth-child(2){ top:30%; left:80%; }
+  .float-item:nth-child(3){ top:55%; left:12%; }
+  .float-item:nth-child(4){ top:45%; left:88%; }
+  .float-item:nth-child(5){ top:72%; left:60%; }
+
+  .shape{
+    width:50px;
+    height:50px;
+  }
+}
+@media (max-width:900px){
+
+  /* TEXT WRAP CONTROL (LEFT ALIGNED ONLY) */
+  .hero-text{
+    max-width:92%;
+  }
+
+  .hero-text h1{
+    font-size:24px;
+    line-height:1.2;
+    margin-bottom:6px;
+    word-break:keep-all;
+  }
+
+  .hero-text h2{
+    font-size:16px;
+    line-height:1.4;
+    max-width:95%;
+  }
+
+  .hero-text p{
+    font-size:14px;
+    margin-bottom:18px;
+  }
+
+  /* BUTTON POLISH */
+  .hero-text a{
+    padding:11px 20px;
+    font-size:14px;
+    border-radius:8px;
+  }
+
+  /* ANIMATION SAFETY */
+  .hero-icons-services{
+    opacity:0.28;
+  }
+
+  .float-item{
+    animation-duration:12s;
+  }
+
+}
+/* ===============================
+   MOBILE NAVBAR (REPLACEMENT)
+================================ */
+@media (max-width:900px){
+
+  /* NAVBAR FIX */
+  .navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#f4f7ff;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:1000;
+  }
+
+  /* LOGO SAFE */
+  .logo-area{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+  }
+
+  .logo-area img{
+    width:34px;
+  }
+
+  .logo-area span{
+    font-size:16px;
+    white-space:nowrap;
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    cursor:pointer;
+  }
+
+  .nav-hamburger span{
+    width:24px;
+    height:3px;
+    background:#0a2540;
+    border-radius:2px;
+  }
+
+  /* HIDE MENU */
+  .nav-links{
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#ffffff;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:14px 16px;
+    gap:14px;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-10px);
+    transition:0.25s ease;
+    z-index:999;
+  }
+
+  /* SHOW MENU */
+  .nav-links.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+  }
+
+}
+/* ===== HERO + ANIMATION (existing code) ===== */
+/* ... aapka pehle ka hero, blur-circle, float-item, shape animations yahin rahega ... */
+
+/* ===============================
+   MOBILE HAMBURGER & MOBILE MENU
+================================ */
+@media (max-width:900px){
+  .nav-hamburger {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    width:28px;
+    cursor:pointer;
+  }
+  .nav-hamburger span{
+    height:3px;
+    background:#000;
+    border-radius:2px;
+  }
+
+  /* Mobile menu hidden by default */
+  .nav-links {
+    display:none;
+    position:fixed;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#fff;
+    flex-direction:column;
+    padding:14px 16px;
+    gap:14px;
+    z-index:999;
+  }
+
+  .nav-links.active {
+    display:flex;
+  }
+
+  .mobile-only {
+    display:block;
+  }
+
+  /* Hide desktop hamburger/menu */
+  .desktop-hamburger, .desktop-menu {
+    display:none !important;
+  }
+}
+
+/* ===============================
+   DESKTOP HAMBURGER (Privacy)
+================================ */
+@media (min-width:901px){
+  .desktop-hamburger {
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    width:28px;
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+  }
+
+  .desktop-hamburger span{
+    height:3px;
+    background:#000;
+    border-radius:2px;
+  }
+
+  .desktop-menu {
+    display:none;
+    position:absolute;
+    right:20px;
+    top:50px;
+    background:#fff;
+    padding:10px 16px;
+    border-radius:6px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    z-index:999;
+  }
+}
+
+/* Toggle desktop menu */
+.desktop-menu.active {
+  display:block;
+}
+
+/* Hide mobile hamburger/privacy link on desktop */
+@media (min-width:901px){
+  .mobile-only, .nav-hamburger {
+    display:none !important;
+  }
+}
+/* MOBILE ONLY NAVBAR BELOW HERO HEADING */
+.mobile-navbar{display:flex;justify-content:flex-start;align-items:center;gap:10px;padding:10px 16px;position:relative;}
+.mobile-navbar .hamburger{font-size:28px;cursor:pointer;}
+.mobile-navbar .dropdown{display:none;position:absolute;top:50px;left:0;background:#fff;padding:10px 16px;border-radius:6px;box-shadow:0 5px 15px rgba(0,0,0,0.1);z-index:999;}
+.mobile-navbar .dropdown a{color:#000;text-decoration:none;display:block;padding:8px 0;}
+.mobile-navbar .dropdown a:hover{color:#007bff;}
+
+
+/* HIDE ON DESKTOP */
+@media (min-width:901px){.mobile-navbar{display:none !important;}}
+.hero-text p{
+  margin:16px 0 28px;
+  color:#555;
+
+  /* 🔑 FIX */
+  max-width:100%;
+  line-height:1.4;
+  white-space:normal;
+  word-break:normal;
+  text-align:left;
+}
+/* FIXED NAVBAR */
+.navbar{
+  position:fixed;
+  top:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:90%;
+  max-width:1200px;
+  height:64px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+
+  background:rgba(255,255,255,0.96);
+  backdrop-filter:blur(10px);
+  border-radius:40px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+  z-index:1000;
+}
+
+/* LOGO AREA */
+.logo-area{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-area img{
+  height:34px;
+}
+
+.logo-area span{
+  font-weight:600;
+  font-size:15px;
+}
+
+/* NAV LINKS */
+.nav-links a{
+  text-decoration:none;
+  color:#111;
+  font-size:14px;
+}
+
+/* HERO PUSH DOWN */
+.hero{
+  padding-top:100px;
+}
+
+</style>
+<!-- PAGE LOADER -->
+<div id="page-loader">
+  <div class="loader"></div>
+</div>
+
+<section class="hero">
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="logo-area">
+      <img src="Image/Logo Designwallah.png" alt="Logo">
+      <span>Designwallah</span>
+    </div>
+    <!-- NAV LINKS -->
+    <div class="nav-links" id="mobileMenu">
+      <a href="index.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Services.html">Services</a>
+
+      <div class="dropdown">
+        <span class="dropdown-btn">Our Solutions ▾</span>
+        <div class="dropdown-menu">
+          <a href="Logo Design.html">Logo Design</a>
+          <a href="UI UX Design.html">UI/UX Design</a>
+            <a href="Brand Packaging Design.html">Brand Pakaging Design</a>
+          <a href="Catalog design.html">Catalog Design</a>
+          <a href="Flyer design.html">Flyer Design</a>
+          <a href="Socila Media Poster Design.html">Social Media Design</a>
+          <a href="Visiting Card Design.html">Visiting Card Design</a>
+          <a href="Banner Design.html">Banner Design</a>
+          <a href="Web. Template design.html">Website Template Design</a>
+        </div>
+      </div>
+
+      <a href="Start Booking.html">Start Booking</a>
+      <a href="Details.html">Details</a>
+      <a href="Portfoli.html">Portfolio</a>
+
+      
+    </div>
+
+    <!-- MOBILE HAMBURGER -->
+    <div class="nav-hamburger" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+   
+
+
+  </div>
+
+  <!-- HERO CONTENT -->
+  <div class="hero-content">
+    <div class="hero-text">
+      <h1>Designwallah</h1>
+      
+      <h1>Start Your Project</h1>
+<h2>Book a Design Consultation</h2>
+<h2>
+  Simple <span class="highlight">Process</span>,
+  Fast <span class="highlight">Response</span>
+</h2>
+      <p>Have a project in mind? Let’s talk and turn your ideas into impactful designs.</p>
+      <!-- MOBILE NAVBAR BELOW HERO HEADING (Step 1 - Idea Pehla) -->
+<div class="mobile-navbar mobile-only">
+<nav class="navbar">
+<div class="hamburger" id="mobileHamburger">☰</div>
+
+</nav>
+</div>
+      <a href="Start Booking.html">Start Booking</a>
+    </div>
+  </div>
+
+  <!-- ANIMATION -->
+  <div class="animation">
+    <span class="blur-circle bc1"></span>
+    <span class="blur-circle bc2"></span>
+    <span class="blur-circle bc3"></span>
+  </div>
+
+ <div class="hero-icons-services">
+
+  <!-- Palette -->
+  <svg class="float-item float-slow icon" viewBox="0 0 24 24">
+    <path d="M12 2C6.48 2 2 6.02 2 11c0 3.87 3.13 7 7 7h1v3a1 1 0 0 0 1 1c5.52 0 10-4.02 10-9s-4.48-9-10-9z" />
+  </svg>
+
+  <!-- Pencil -->
+  <svg class="float-item float-mid icon" viewBox="0 0 24 24">
+    <path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25z" />
+  </svg>
+
+  <!-- Ruler -->
+  <svg class="float-item float-fast icon" viewBox="0 0 24 24">
+    <path d="M3 17.25L17.25 3l3.75 3.75L6.75 21H3z" />
+  </svg>
+
+  <!-- Brush -->
+  <svg class="float-item float-slow icon" viewBox="0 0 24 24">
+    <path d="M7 16c-1.1 0-2 .9-2 2 0 1.66-1.34 3-3 3v2c2.76 0 5-2.24 5-5 0-1.1-.9-2-2-2zm13.71-9.29l-4.42-4.42a1 1 0 0 0-1.42 0L7 10.17l4.42 4.42 8.29-8.29a1 1 0 0 0 0-1.42z"/>
+  </svg>
+
+  <!-- Layout / Document -->
+  <svg class="float-item float-mid icon" viewBox="0 0 24 24">
+    <path d="M6 2h9l5 5v15a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+  </svg>
+
+</div>
+
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+
+</section>
+
+
+<br>
+ 
+
+  <style>
+    body { font-family: 'Poppins', sans-serif; margin:0; padding:0; scroll-behavior: smooth; }
+
+    /* Hero Section */
+    header { background: linear-gradient(135deg,#0d6efd,#6610f2); color: white; padding: 100px 20px 60px 20px; text-align: center; position: relative; overflow: hidden; border-bottom-left-radius: 20px; border-bottom-right-radius: 20px; border-top-left-radius:20px; border-top-right-radius:20px; }
+    header h1 { margin: 0 0 10px; font-size: 2.2em; animation: fadeInDown 1s ease forwards; opacity:0; }
+    header p { margin:0; font-size: 1.1em; animation: fadeInUp 1s ease 0.5s forwards; opacity:0; }
+    .cta-btn { background: rgba(255,255,255,0.9); color:#0d6efd; padding: 14px 35px; border-radius: 30px; display: inline-block; margin-top: 25px; font-weight:600; text-decoration:none; transition:0.3s; animation: fadeInUp 1s ease 1s forwards; opacity:0; }
+    .cta-btn:hover { background:#0d6efd; color:white; }
+
+    @keyframes fadeInDown { 0%{opacity:0; transform:translateY(-20px);} 100%{opacity:1; transform:translateY(0);} }
+    @keyframes fadeInUp { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+
+    /* Services Section */
+    .services-container { padding:60px 20px; max-width:1200px; margin:auto; position:relative; }
+    .services-header { display:flex; justify-content:space-between; align-items:center; cursor:pointer; background:#f8f9fa; padding:15px 20px; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); max-width:400px; margin:auto; }
+    .services-header h2 { margin:0; text-align:center; flex:1; font-family: Arial, sans-serif; }
+    .services-header i { transition:0.3s; }
+    .services-header.active i { transform:rotate(180deg); }
+
+    .services-slider { display:none; flex-wrap:wrap; gap:25px; margin:20px auto 0 auto; justify-content:center; max-width:1000px; }
+    .service-card { background:#f8f9fa; padding:25px; border-radius:20px; text-align:center; width:260px; box-shadow:0 6px 12px rgba(0,0,0,0.1); transition:0.3s; cursor:pointer; }
+    .service-card i { font-size:1.5em; color:#0d6efd; margin-bottom:12px; transition:0.3s; }
+    .service-card h3 { margin:12px 0; }
+    .service-card:hover { transform:translateY(-5px); box-shadow:0 8px 15px rgba(0,0,0,0.15); }
+    .service-card:hover i { color:#6610f2; }
+    .service-card.selected { border:2px solid #6610f2; }
+
+    /* Booking Form */
+    .booking-form { max-width:650px; margin:40px auto; padding:30px; background:#f8f9fa; border-radius:20px; box-shadow:0 6px 12px rgba(0,0,0,0.1); position: relative; z-index:5; }
+    .booking-form h2 { text-align:center; margin-bottom:25px; }
+    .booking-form label { display:block; margin:15px 0 5px; font-weight:600; }
+    .booking-form input, .booking-form textarea { width:100%; padding:12px; border-radius:10px; border:1px solid #ccc; transition:0.3s; }
+    .booking-form input:focus, .booking-form textarea:focus { border-color:#6610f2; outline:none; }
+    .booking-form button { background:#0d6efd; color:white; padding:14px 20px; border:none; border-radius:30px; margin-top:25px; font-weight:600; cursor:pointer; width:100%; transition:0.3s; }
+    .booking-form button:hover { background:#6610f2; }
+
+    /* Selected Services Display */
+    .selected-services { margin-top:15px; background:#e9ecef; padding:12px; border-radius:12px; min-height:40px; }
+
+    /* Bottom Content Section */
+    .bottom-content {background: linear-gradient(135deg,#0d6efd,#6610f2); color:white; padding:50px 20px; text-align:center; border-top-left-radius:20px; border-top-right-radius:20px; margin-top:60px; border-bottom-left-radius:20px; border-bottom-right-radius:20px; }
+    .bottom-content h3 { margin-bottom:15px; }
+    .bottom-content p { max-width:700px; margin:auto; line-height:1.6; }
+    .bottom-contact-icons { display:flex; justify-content:center; gap:30px; margin-top:25px; }
+    .bottom-contact-icons a { color:white; font-size:1.8em; text-decoration:none; transition:0.3s; }
+    .bottom-contact-icons a:hover { color:#6610f2; }
+
+    @media(max-width:768px){
+      .services-slider { justify-content:center; }
+      .service-card { width:90%; }
+      .booking-form { margin:40px 20px; }
+      .services-header { max-width:90%; }
+    }
+	.services-header h2 {
+    margin:0;
+    text-align:center;
+    flex:1;
+    font-size: 1.5em; /* chhota heading */
+}
+
+.service-card h3 {
+    margin:12px 0;
+    font-size: 1em; /* card title chhota */
+}
+
+/* Heading style */
+.form-structure-heading {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0a2540;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.booking-steps-line {
+  display: flex;
+  flex-wrap: wrap;        /* Mobile-friendly */
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #0a2540;
+  margin: 20px 0;
+  justify-content: center; /* Center in container */
+}
+
+.booking-steps-line .step {
+  font-weight: 600;
+  background: #f0f4ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.booking-steps-line .arrow {
+  font-weight: 700;
+  color: #1e90ff;
+}
+
+
+  </style>
+
+<header>
+  <h1>Book Your Design Service with Our Experts</h1>
+  <p>Serving clients across <span class="highlight">Delhi, Mumbai, Hyderabad & Bangalore. </span>Quick, easy, and professional.</p>
+  <p>No payment required • We contact you within 24 hours</p>
+  <a href="#booking-form" class="cta-btn">Book Now</a>
+</header>
+<br>
+<!-- Form Fill Structure Heading -->
+<h3 class="form-structure-heading">Form Fill Structure</h3>
+
+<!-- Horizontal Step Guide -->
+<div class="booking-steps-line">
+  <span class="step">Select Service</span>
+  <span class="arrow">→</span>
+  <span class="step">Full Name</span>
+  <span class="arrow">→</span>
+  <span class="step">Phone Number</span>
+  <span class="arrow">→</span>
+  <span class="step">Email</span>
+  <span class="arrow">→</span>
+  <span class="step">Select City</span>
+  <span class="arrow">→</span>
+  <span class="step">Additional Notes</span>
+</div>
+
+
+<section class="services-container">
+  <div class="services-header" id="servicesToggle">
+    <h2>Select Services</h2>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+  <div class="services-slider" id="servicesSlider">
+    <div class="service-card" data-service="Logo Design"><i class="fas fa-pencil-ruler"></i><h3>Logo Design</h3></div>
+    <div class="service-card" data-service="UI/UX Design"><i class="fas fa-layer-group"></i><h3>UI/UX Design</h3></div>
+    <div class="service-card" data-service="Brand Packaging Design"><i class="fas fa-box-open"></i><h3>Brand Packaging Design</h3></div>
+    <div class="service-card" data-service="Catalog Design"><i class="fas fa-book-open"></i><h3>Catalog Design</h3></div>
+    <div class="service-card" data-service="Flyer Design"><i class="fas fa-file-alt"></i><h3>Flyer Design</h3></div>
+    <div class="service-card" data-service="Social Media Poster Design"><i class="fas fa-image"></i><h3>Social Media Poster Design</h3></div>
+    <div class="service-card" data-service="Visiting Card Design"><i class="fas fa-id-card"></i><h3>Visiting Card Design</h3></div>
+    <div class="service-card" data-service="Banner Design"><i class="fas fa-flag"></i><h3>Banner Design</h3></div>
+    <div class="service-card" data-service="Website Template Design"><i class="fas fa-laptop-code"></i><h3>Website Template Design</h3></div>
+  </div>
+</section>
+
+<section class="booking-form" id="booking-form">
+  <h2>Book a Service</h2>
+  <form id="bookingForm">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="phone">Phone Number</label>
+    <input type="text" id="phone" name="phone" required>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required>
+
+    <label>Selected Service(s)</label>
+    <div class="selected-services" id="selectedServices">None selected</div>
+
+    <label for="city">Select City</label>
+    <select id="city" name="city" required>
+      <option value="Delhi">Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Bangalore">Bangalore</option>
+    </select>
+
+    <label for="notes">Additional Notes</label>
+    <textarea id="notes" name="notes" rows="4"></textarea>
+
+    <button type="submit">Confirm Booking</button>
+  </form>
+</section>
+
+<!-- SUCCESS POPUP -->
+<div id="successPopup" style="display:none;position:fixed;top:20%;left:50%;transform:translateX(-50%);background:#d4edda;color:#155724;padding:20px 30px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.2);font-weight:600;z-index:10000;text-align:center;animation:popupFade 0.6s ease;">
+  ✅ Booking Confirmed! We will contact you shortly on WhatsApp.
+</div>
+
+<style>
+@keyframes popupFade {
+  0% {opacity:0; transform:translate(-50%, -20px);}
+  100% {opacity:1; transform:translate(-50%, 0);}
+}
+</style>
+
+<script>
+const form = document.getElementById('bookingForm');
+const successPopup = document.getElementById('successPopup');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name = form.name.value;
+  const phone = form.phone.value;
+  const email = form.email.value;
+  const city = form.city.value;
+  const notes = form.notes.value;
+  const services = document.getElementById('selectedServices').innerText;
+
+  // WhatsApp number
+  const whatsappNumber = "917617796119";
+
+  // Current date & time
+  const now = new Date();
+  const formattedDate = now.toLocaleDateString();
+  const formattedTime = now.toLocaleTimeString();
+
+  // Construct message with date/time
+  const message = `📌 New Booking Request for Designwallah Agency
+Date: ${formattedDate}
+Time: ${formattedTime}
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+📧 Email: ${email}
+🎨 Service: ${services}
+📍 City: ${city}
+
+📝 Notes:
+${notes}`;
+
+  const encodedMessage = encodeURIComponent(message);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+  } else {
+    window.open(
+      `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`,
+      "_blank"
+    );
+  }
+
+  // Show success popup with smooth transition
+  successPopup.style.display = "block";
+  setTimeout(() => {
+    successPopup.style.opacity = 0;
+    setTimeout(()=> successPopup.style.display = "none", 600);
+    successPopup.style.opacity = 1; // reset for next submit
+  }, 3500);
+
+  // Reset form
+  form.reset();
+  document.getElementById('selectedServices').innerText = "None selected";
+});
+</script>
+
+
+<!-- Bottom Content Section -->
+<section class="bottom-content">
+  <h3>Get in Touch with Us</h3>
+  <p>Our expert design team is ready to help you create stunning visuals for your brand. Contact us today to discuss your project and get a free consultation. Serving clients in <span class="highlight">Delhi, Mumbai, Hyderabad, and Bangalore.</span></p>
+  <div class="bottom-contact-icons">
+    <a href="tel:+917617796119"><i class="fas fa-phone"></i></a>
+    <a href="https://wa.me/917617796119?text=Hello%20I%20am%20interested%20in%20your%20services"><i class="fab fa-whatsapp"></i></a>
+   <a href="mailto:abhaygautam@example.com?subject=Inquiry&body=Hello%20I%20am%20interested%20in%20your%20services">
+  <i class="fa-solid fa-envelope"></i>
+</a>
+
+  </div>
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+
+  // Services slider toggle
+  const toggle = document.getElementById('servicesToggle');
+  const slider = document.getElementById('servicesSlider');
+  toggle.addEventListener('click', ()=>{
+    slider.style.display = slider.style.display === 'flex' ? 'none' : 'flex';
+    toggle.classList.toggle('active');
+  });
+
+  const selectedServicesDiv = document.getElementById('selectedServices');
+  const serviceCards = document.querySelectorAll('.service-card');
+
+  serviceCards.forEach(card=>{
+    card.addEventListener('click', ()=>{
+      card.classList.toggle('selected');
+      const selected = Array.from(serviceCards).filter(c=>c.classList.contains('selected')).map(c=>c.getAttribute('data-service'));
+      selectedServicesDiv.textContent = selected.length ? selected.join(', ') : 'None selected';
+    });
+  });
+
+  const bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', async e=>{
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const services = Array.from(serviceCards).filter(c=>c.classList.contains('selected')).map(c=>c.getAttribute('data-service'));
+    const city = document.getElementById('city').value;
+    const notes = document.getElementById('notes').value;
+
+    if(services.length === 0){ alert('Please select at least one service.'); return; }
+
+    try{
+      await db.collection('bookings').add({ name, phone, email, services, city, notes, timestamp: firebase.firestore.FieldValue.serverTimestamp() });
+      alert('Booking confirmed! We will contact you shortly.');
+      bookingForm.reset();
+      serviceCards.forEach(card=>card.classList.remove('selected'));
+      selectedServicesDiv.textContent = 'None selected';
+    } catch(err){
+      console.error(err);
+      alert('Something went wrong.');
+    }
+  });
+</script>
+
+<br>
+
+
+
+
+
+    
+
+<!-- MODERN BLACK FOOTER WITH PEN & LOCATION ICONS -->
+<footer class="main-footer">
+   <!-- footer content -->
+
+
+    <div class="footer-container">
+        <!-- BRAND INFO -->
+        <div class="footer-brand">
+        <img src="Image/Logo Designwallah.png" alt="Designwallah">
+            <h3>Designwallah</h3>
+            <p>Building meaningful brands through thoughtful design and visual clarity. Focused on long-term identity, not just aesthetics.</p>
+            <br></br>
+            
+        </div>
+
+        <!-- EXPLORE LINKS -->
+        <div class="footer-links">
+            <h4>Explore</h4>
+            <a href="index.html">Home</a>
+            <a href="About.html">About</a>
+            <a href="Services.html">Services</a>
+             <a href="Start Booking.html">Start Booking</a>
+            <a href="Details.html">Details</a>
+            <a href="Portfoli.html">Portfolio</a>
+        </div>
+
+        <!-- SERVICES -->
+        <div class="footer-links">
+            <h4>Services</h4>
+            <a href="Logo Design.html">Logo Design</a>
+            <a href="UI UX Design.html">UI/UX Design</a>
+               <a href="Brand Packaging Design.html">Brand Pakaging Design</a>
+            <a href="Catalog design.html">Catalog Design</a>
+            <a href="Flyer design.html">Flyer Design</a>
+            <a href="Socila Media Poster Design.html">Social Media Poster Design</a>
+            <a href="Visiting Card Design.html">Visiting Card Design</a>
+            <a href="Banner Design.html">Banner Design</a>
+            <a href="Web. Template design.html">Website Template Design</a>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="footer-contact">
+    <h4>Let’s Work Together</h4>
+    <p>Have an idea or project? Let’s create something meaningful and impactful for your brand.</p>
+   <div class="footer-policy-links">
+  <a href="https://wa.me/917617796119"> Chat On WhatsApp</a>
+  <span class="pipe"></span>
+  <a href="Privacy Policy.html">Privacy Policy</a>
+</div>
+
+
+</div>
+
+    </div>
+    
+  
+    
+  
+
+
+    <!-- BOTTOM LINE WITH ICONS -->
+    <div class="footer-bottom">
+        <p style="display:flex; justify-content:center; align-items:center; gap:15px; font-size:14px; color:#ccc; margin-bottom:6px;">
+            <span>✒️</span>
+            <span>Designing brands that grow your business</span>
+            <span>📍</span>
+            <span>Serving clients across Delhi • Mumbai • Hyderabad • Bangalore</span>
+        </p>
+        <span style="display:block; text-align:center; font-size:13px; color:#777;">© 2026 Designwallah — A Graphic Design Agency.
+All rights reserved.</span>
+<span style="display:block; text-align:center; font-size:13px; color:#777;">Current Version: v1.
+0 (Annual Release)</span>
+    </div>
+    
+</footer>
+<style>
+html, body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+.main-footer{
+    width:100%;
+    background:linear-gradient(180deg,
+        #1f1f1f 0%,
+        #151515 40%,
+        #0b0b0b 70%,
+        #000000 100%
+    );
+    color:#fff;
+    padding:80px 6% 60px;
+    position:relative;
+	border-top-left-radius:20px; border-top-right-radius:20px;
+	
+}
+
+
+/* SOFT TOP GLOW LINE */
+.main-footer::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+/* GRID */
+.footer-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:50px;
+    margin-bottom:50px;
+}
+
+/* HOVER LIFT (MICRO INTERACTION) */
+.footer-brand,
+.footer-links,
+.footer-contact{
+    transition:transform 0.4s ease;
+}
+.footer-brand:hover,
+.footer-links:hover,
+.footer-contact:hover{
+    transform:translateY(-6px);
+}
+
+/* BRAND */
+.footer-brand h3{
+    font-size:28px;
+    margin-bottom:16px;
+}
+.footer-brand p{
+    font-size:15px;
+    line-height:1.8;
+    color:#aaa;
+}
+
+/* TITLES */
+.footer-links h4,
+.footer-contact h4{
+    font-size:16px;
+    margin-bottom:18px;
+}
+
+/* LINKS */
+.footer-links a{
+    display:block;
+    color:#aaa;
+    font-size:14px;
+    text-decoration:none;
+    margin-bottom:10px;
+    position:relative;
+    padding-left:0;
+    transition:all 0.35s ease;
+}
+.footer-links a::before{
+    content:"→";
+    position:absolute;
+    left:-18px;
+    opacity:0;
+    transition:0.3s;
+}
+.footer-links a:hover{
+    color:#fff;
+    padding-left:12px;
+}
+.footer-links a:hover::before{
+    opacity:1;
+}
+
+/* CONTACT */
+.footer-contact p{
+    font-size:14px;
+    color:#aaa;
+    margin-bottom:14px;
+    line-height:1.7;
+}
+
+/* CTA BUTTON */
+.footer-btn{
+    display:inline-block;
+    background:#fff;
+    color:#000;
+    padding:14px 32px;
+    border-radius:40px;
+    font-size:14px;
+    font-weight:500;
+    text-decoration:none;
+    transition:all 0.35s ease;
+}
+.footer-btn:hover{
+    background:#000;
+    color:#fff;
+    box-shadow:0 0 0 1px rgba(255,255,255,0.3);
+    transform:translateY(-2px);
+}
+
+/* BOTTOM */
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.08);
+    padding-top:26px;
+    text-align:center;
+}
+.footer-bottom span{
+    opacity:0.85;
+}
+
+/* MOBILE POLISH */
+@media(max-width:768px){
+    .main-footer{
+        padding:60px 8% 40px;
+    }
+}
+.footer-policy-links a{
+  color:#ffffff;          /* white */
+  text-decoration:none;   /* underline remove */
+  opacity:0.6;
+  transition:opacity 0.3s ease;
+}
+
+.footer-policy-links a:hover{
+  opacity:1;
+}
+
+/* Beech ka danda */
+.footer-policy-links .pipe{
+  display:inline-block;
+  width:1px;
+  height:18px;
+  background:rgba(255,255,255,0.5);
+  margin:0 10px;
+}
+.footer-brand{
+  display:flex;
+  flex-direction:column;
+  align-items:center;   /* horizontal center */
+  text-align:center;    /* text center */
+  gap:10px;
+}
+
+.footer-brand img{
+  display:block;
+  height:70px;          /* adjust if needed */
+  margin:0 auto;        /* extra safety */
+}
+
+
+
+
+</style>
+<script>
+const dropBtn = document.querySelector(".dropdown-btn");
+const dropBox = document.querySelector(".dropdown");
+
+dropBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  dropBox.classList.toggle("active");
+});
+
+/* click outside close */
+document.addEventListener("click", () => {
+  dropBox.classList.remove("active");
+});
+</script>
+<script>
+
+  document.querySelectorAll(".float-item").forEach(el=>{
+    const x = (e.clientX / window.innerWidth - 0.5) * 12;
+    const y = (e.clientY / window.innerHeight - 0.5) * 12;
+    el.style.transform = `translate(${x}px, ${y}px)`;
+  });
+});
+</script>
+
+
+<script>
+const toggle = document.getElementById("privacyToggle");
+const dropdown = document.querySelector(".privacy-dropdown");
+
+toggle.addEventListener("click", e=>{
+  e.stopPropagation();
+  dropdown.classList.toggle("active");
+});
+
+/* click anywhere → close */
+document.addEventListener("click", ()=>{
+  dropdown.classList.remove("active");
+});
+</script>
+<script>
+document.getElementById("navToggle").onclick = function(){
+  document.querySelector(".nav-links").classList.toggle("active");
+};
+</script>
+<script>
+// MOBILE HAMBURGER LOGIC
+const mobileHamburger = document.getElementById('mobileHamburger');
+const mobileDropdown = document.getElementById('mobileDropdown');
+
+
+mobileHamburger.addEventListener('click', (e)=>{
+e.stopPropagation();
+mobileDropdown.style.display = mobileDropdown.style.display === 'block' ? 'none' : 'block';
+});
+
+
+// CLOSE DROPDOWN IF CLICK OUTSIDE
+document.addEventListener('click', ()=>{
+mobileDropdown.style.display = 'none';
+});
+</script>
+<script>
+const desktopHamburger = document.getElementById("desktopHamburger");
+const desktopMenu = document.getElementById("desktopMenu");
+
+desktopHamburger.addEventListener("click", function(e){
+  e.stopPropagation();
+  desktopMenu.classList.toggle("active");
+});
+
+document.addEventListener("click", function(){
+  desktopMenu.classList.remove("active");
+});
+</script>
+
+<script>
+window.addEventListener("load", function(){
+  const loader = document.getElementById("page-loader");
+  loader.style.opacity = "0";
+  loader.style.pointerEvents = "none";
+
+  setTimeout(()=>{
+    loader.style.display = "none";
+  }, 400);
+});
+</script>
+
+</body>
+</html>
